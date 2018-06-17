@@ -1,0 +1,388 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta
+      http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+    <title>Sectra Web Report Viewer</title>
+    <style
+      type="text/css">
+          .bodyGeneric {
+          margin:0px auto;
+          padding:0px;
+          background:#5377ab;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:11px;
+          color:#000000;
+          }
+
+          .bodySlice {
+          margin:0px auto;
+          padding:0px;
+          background:#000000;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:11px;
+          color:#000000;
+          }
+
+          a {
+          font-size:11px;
+          color:#000000;
+          text-decoration:none;
+          }
+
+          a:hover {
+          text-decoration:none;
+          }
+
+          /* CSS for the white partition between header and body*/
+          hr{
+          margin:0px;
+          padding:0px;
+          height:3px;
+          border:0px;
+          background:#FFFFFF;
+          }
+
+          h3 {
+          font-weight:normal;
+          color:#637490;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:11px;
+          background:#d4dfec;
+          display:block;
+          margin:0px;
+          padding:3px;
+          }
+
+          h4 {
+          font-weight:normal;
+          color:#637490;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:11px;
+          margin:0px;
+          padding:3px;
+          }
+
+          a.blueTextLink {
+          font-weight:normal;
+          font-size:11px;
+          color:#637490;
+          font-family:Arial, Helvetica, sans-serif;
+          margin:0px;
+          }
+
+          a.whiteTextLink {
+          font-weight:normal;
+          font-size:10px;
+          color:#ffffff;
+          font-family:Arial, Helvetica, sans-serif;
+          margin:0px;
+          }
+
+          img{
+          border:0px;
+          }
+
+          /* CSS for Complete content area*/
+          #mainContainer {
+          width:99%;
+          margin:0px auto;
+          text-align:left;
+          float:left;
+          }
+
+
+          /* CSS for heading section area*/
+          #heading {
+          width:99.5%;
+          color:#FFFFFF;
+          font-size:11px;
+          padding:10px 0px 0px 0px;
+          }
+
+          #heading a {
+          color:#FFFFFF;
+          }
+
+          /* CSS for content below logo area*/
+          #mainContentContainer {
+          width:100%;
+          margin-top:5px;
+          }
+
+          #indexData{
+          float:left;
+          margin-right:0px;
+          width:100%;
+          height:482px;
+          background:#FFFFFF;
+          overflow:auto;
+          }
+
+          /* CSS for heading in black font in index section*/
+          #indexData th{
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:11px;
+          color:#000000;
+          font-weight:bold;
+          }
+
+          .patientinfo{
+          padding-left:3px;
+          padding-right:3px;
+          font-weight:bold;
+          margin:3px;
+          background:#EEEEEE;
+          overflow:hidden;
+          text-overflow:ellipsis;
+          white-space:nowrap;
+          }
+
+          #indexData td{
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:11px;
+          color:#000000;
+          }
+
+          #indexData td a {
+          text-decoration:none;
+          padding-left:5px;
+          padding-top:2px;
+          display:block;
+          }
+
+          /*css for thumbnail section*/
+          #thumbImagesContainer {
+          width:99.5%;
+          padding:0px 0px;
+          margin-top:3px;
+          }
+
+          #thumbImagesContainer ul {
+          list-style-type:none;
+          margin:0px;
+          padding:0px;
+          }
+
+          #thumbImagesContainer li {
+          display:inline;
+          padding:0px 3px 0px 0px;
+          float:left;
+          }
+
+          #thumbImagesContainer li p {
+          margin:0px;
+          padding:0px;
+          font-size:10px;
+          color:#FFFFFF;
+          }
+
+          .imageBorder{
+          border:2px solid #e69755;
+          }
+
+          /*css for iFrame [start]*/
+          #imageDetails {
+          float:right;
+          width:100%;
+          height:482px;
+          background:#000;
+          overflow:hidden;
+          }
+
+          /*css for report section at right hand side of the page*/
+          #rightContainer {
+          float:float;
+          width:100%;
+          }
+
+          #rightContainer p {
+          padding:0px 5px 10px 3px;
+          margin:0px;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:11px;
+          font-weight:normal;
+          color:#000000;
+          }
+
+          .report_text{
+          font-family:Arial, Helvetica, sans-serif;
+          padding-left:3px;
+          margin:0px;
+          font-size:11px;
+          color:#000000;
+          }
+
+          #requestContainer {
+          background:#FFFFFF;
+          margin-bottom:0px;
+          font-size:11px;
+          height:175px;
+          }
+
+          #reportContainer {
+          background:#FFFFFF;
+          overflow:auto;
+          }
+
+          .report {
+          border-bottom:2px solid #e9eaee;
+          }
+
+          .text1{
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:11px;
+          font-weight:bold;
+          color: #ffffff;
+          padding-left:3px;
+          padding-right:3px;
+          overflow:hidden;
+          text-overflow:ellipsis;
+          white-space:nowrap;
+          }
+
+          .text2{
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:10px;
+          color:#ffffff;
+          padding-left:3px;
+          padding-right:3px;
+          overflow:hidden;
+          text-overflow:ellipsis;
+          white-space:nowrap;
+          }
+
+          /*css for report section at right hand side of the page [end]*/
+
+          .report_text {
+          font-weight:normal;
+          color:#000000;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:11px;
+          margin:0px;
+          padding:3px;
+          }
+
+          
+          .DescriptionOverflow {
+          overflow:hidden;
+          text-overflow:ellipsis;
+          white-space:nowrap;
+          }
+
+        </style>
+  </head>
+  <body
+    class="bodySlice">
+    <table
+      width="100%"
+      border="0"
+      cellspacing="0"
+      cellpadding="0"
+      style="table-layout:fixed;">
+      <tr
+        bgcolor="#404040">
+        <td
+          align="left"
+          valign="middle"
+          class="text1">Levis, Federico</td>
+        <td
+          align="right"
+          valign="middle"
+          class="text1"
+          style="width:90px;">27/07/1966   M</td>
+      </tr>
+      <tr
+        bgcolor="#404040">
+        <td
+          colspan="2"
+          align="left"
+          valign="middle"
+          class="text1">LVSFDR-0766-27CO</td>
+      </tr>
+    </table>
+    <table
+      width="100%"
+      border="0"
+      cellspacing="0"
+      cellpadding="0">
+      <tr>
+        <td
+          height="400"
+          colspan="2"
+          align="center">
+          <a
+            href="../../IHE_PDI/000038F3/AA1B7E93/AAFB21A6/0000FFEC/EE775E7A.JPG"
+            target="_blank">
+            <img
+              src="../../IHE_PDI/000038F3/AA1B7E93/AAFB21A6/0000FFEC/EE775E7A.JPG"
+              width="400"
+              border="0"
+              align="top" />
+          </a>
+        </td>
+      </tr>
+    </table>
+    <table
+      width="100%"
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
+      bgcolor="#404040">
+      <td
+        width="53%"
+        align="center"
+        valign="middle"
+        style="height:28px; padding-top:4px;">
+        <a
+          href="EE82F23D.HTM">
+          <img
+            src="../IMAGES/BACK.GIF"
+            alt="Back"
+            width="40"
+            height="20" />
+        </a> <a
+          href="EE192124.HTM"><img
+            src="../IMAGES/NEXT.GIF"
+            alt="Next"
+            width="40"
+            height="20"
+            hspace="1" /></a></td>
+    </table>
+    <table
+      width="100%"
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
+      bgcolor="#404040"
+      style="table-layout:fixed;">
+      <tr>
+        <td
+          align="left"
+          valign="top"
+          class="text2">
+                        Image 18 of 29</td>
+        <td
+          align="right"
+          valign="top"
+          class="text2"
+          style="width:150px;">30/04/2018 19:32:19</td>
+      </tr>
+      <tr>
+        <td
+          align="left"
+          valign="top"
+          class="text2">T1w TSE</td>
+        <td
+          align="right"
+          valign="top"
+          class="text2"
+          style="width:150px;">
+          <a
+            href="../../DICOM/000038F3/AA1B7E93/AAFB21A6/0000FFEC/EE775E7A"
+            class="whiteTextLink">DICOM file</a>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

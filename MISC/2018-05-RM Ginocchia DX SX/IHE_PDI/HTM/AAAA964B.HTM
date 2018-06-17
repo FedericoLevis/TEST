@@ -1,0 +1,619 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta
+      http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+    <title>Sectra Web Report Viewer</title>
+    <style
+      type="text/css">
+          .bodyGeneric {
+          margin:0px auto;
+          padding:0px;
+          background:#5377ab;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:11px;
+          color:#000000;
+          }
+
+          .bodySlice {
+          margin:0px auto;
+          padding:0px;
+          background:#000000;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:11px;
+          color:#000000;
+          }
+
+          a {
+          font-size:11px;
+          color:#000000;
+          text-decoration:none;
+          }
+
+          a:hover {
+          text-decoration:none;
+          }
+
+          /* CSS for the white partition between header and body*/
+          hr{
+          margin:0px;
+          padding:0px;
+          height:3px;
+          border:0px;
+          background:#FFFFFF;
+          }
+
+          h3 {
+          font-weight:normal;
+          color:#637490;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:11px;
+          background:#d4dfec;
+          display:block;
+          margin:0px;
+          padding:3px;
+          }
+
+          h4 {
+          font-weight:normal;
+          color:#637490;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:11px;
+          margin:0px;
+          padding:3px;
+          }
+
+          a.blueTextLink {
+          font-weight:normal;
+          font-size:11px;
+          color:#637490;
+          font-family:Arial, Helvetica, sans-serif;
+          margin:0px;
+          }
+
+          a.whiteTextLink {
+          font-weight:normal;
+          font-size:10px;
+          color:#ffffff;
+          font-family:Arial, Helvetica, sans-serif;
+          margin:0px;
+          }
+
+          img{
+          border:0px;
+          }
+
+          /* CSS for Complete content area*/
+          #mainContainer {
+          width:99%;
+          margin:0px auto;
+          text-align:left;
+          float:left;
+          }
+
+
+          /* CSS for heading section area*/
+          #heading {
+          width:99.5%;
+          color:#FFFFFF;
+          font-size:11px;
+          padding:10px 0px 0px 0px;
+          }
+
+          #heading a {
+          color:#FFFFFF;
+          }
+
+          /* CSS for content below logo area*/
+          #mainContentContainer {
+          width:100%;
+          margin-top:5px;
+          }
+
+          #indexData{
+          float:left;
+          margin-right:0px;
+          width:100%;
+          height:482px;
+          background:#FFFFFF;
+          overflow:auto;
+          }
+
+          /* CSS for heading in black font in index section*/
+          #indexData th{
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:11px;
+          color:#000000;
+          font-weight:bold;
+          }
+
+          .patientinfo{
+          padding-left:3px;
+          padding-right:3px;
+          font-weight:bold;
+          margin:3px;
+          background:#EEEEEE;
+          overflow:hidden;
+          text-overflow:ellipsis;
+          white-space:nowrap;
+          }
+
+          #indexData td{
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:11px;
+          color:#000000;
+          }
+
+          #indexData td a {
+          text-decoration:none;
+          padding-left:5px;
+          padding-top:2px;
+          display:block;
+          }
+
+          /*css for thumbnail section*/
+          #thumbImagesContainer {
+          width:99.5%;
+          padding:0px 0px;
+          margin-top:3px;
+          }
+
+          #thumbImagesContainer ul {
+          list-style-type:none;
+          margin:0px;
+          padding:0px;
+          }
+
+          #thumbImagesContainer li {
+          display:inline;
+          padding:0px 3px 0px 0px;
+          float:left;
+          }
+
+          #thumbImagesContainer li p {
+          margin:0px;
+          padding:0px;
+          font-size:10px;
+          color:#FFFFFF;
+          }
+
+          .imageBorder{
+          border:2px solid #e69755;
+          }
+
+          /*css for iFrame [start]*/
+          #imageDetails {
+          float:right;
+          width:100%;
+          height:482px;
+          background:#000;
+          overflow:hidden;
+          }
+
+          /*css for report section at right hand side of the page*/
+          #rightContainer {
+          float:float;
+          width:100%;
+          }
+
+          #rightContainer p {
+          padding:0px 5px 10px 3px;
+          margin:0px;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:11px;
+          font-weight:normal;
+          color:#000000;
+          }
+
+          .report_text{
+          font-family:Arial, Helvetica, sans-serif;
+          padding-left:3px;
+          margin:0px;
+          font-size:11px;
+          color:#000000;
+          }
+
+          #requestContainer {
+          background:#FFFFFF;
+          margin-bottom:0px;
+          font-size:11px;
+          height:175px;
+          }
+
+          #reportContainer {
+          background:#FFFFFF;
+          overflow:auto;
+          }
+
+          .report {
+          border-bottom:2px solid #e9eaee;
+          }
+
+          .text1{
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:11px;
+          font-weight:bold;
+          color: #ffffff;
+          padding-left:3px;
+          padding-right:3px;
+          overflow:hidden;
+          text-overflow:ellipsis;
+          white-space:nowrap;
+          }
+
+          .text2{
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:10px;
+          color:#ffffff;
+          padding-left:3px;
+          padding-right:3px;
+          overflow:hidden;
+          text-overflow:ellipsis;
+          white-space:nowrap;
+          }
+
+          /*css for report section at right hand side of the page [end]*/
+
+          .report_text {
+          font-weight:normal;
+          color:#000000;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:11px;
+          margin:0px;
+          padding:3px;
+          }
+
+          
+          .DescriptionOverflow {
+          overflow:hidden;
+          text-overflow:ellipsis;
+          white-space:nowrap;
+          }
+
+        </style>
+  </head>
+  <body
+    class="bodyGeneric">
+    <div
+      id="heading">
+      <div
+        style="float:left; width:48%; padding:10px 0px 0px 3px;">
+        <strong>DATA MEDICA PADOVA S.p.A., Via Zanchi, 89 - 35133 PADOVA (PD)</strong>
+      </div>
+      <div
+        style="float:right; text-align:right">
+        <a
+          href="http://www.sectra.com/medical/"
+          target="_blank">
+          <img
+            src="..//IMAGES/SECTRALO.GIF"
+            alt="Sectra Home Page"
+            width="113"
+            height="25" />
+        </a>
+      </div>
+    </div>
+    <div
+      style="clear:both;" />
+    <div
+      id="mainContainer">
+      <table
+        width="100%"
+        border="0"
+        cellspacing="0"
+        cellpadding="0">
+        <tr>
+          <td
+            height="20"
+            colspan="2"
+            align="left"
+            valign="top">
+            <hr />
+          </td>
+        </tr>
+        <tr>
+          <td
+            width="70%"
+            align="left"
+            valign="top">
+            <table
+              width="100%"
+              border="0"
+              cellspacing="0"
+              cellpadding="0">
+              <tr>
+                <td
+                  width="41%"
+                  align="left"
+                  valign="top">
+                  <div
+                    id="indexData">
+                    <h3>Index</h3>
+                    <table
+                      width="100%"
+                      border="0"
+                      cellspacing="0"
+                      cellpadding="0"
+                      style="table-layout:fixed;">
+                      <tr>
+                        <td
+                          class="patientinfo"
+                          style="text-align:left;">Levis, Federico</td>
+                        <td
+                          class="patientinfo"
+                          style="text-align:right; width:90px;">27/07/1966   M</td>
+                      </tr>
+                      <tr>
+                        <td
+                          colspan="2"
+                          class="patientinfo">LVSFDR-0766-27CO</td>
+                      </tr>
+                    </table>
+                    <table
+                      width="100%"
+                      border="0"
+                      cellspacing="0"
+                      cellpadding="0">
+                      <tr>
+                        <td
+                          width="15%"
+                          valign="top"
+                          style="padding-left:15px;">
+                          <a
+                            href="AAFB21A6.HTM">MR</a>
+                        </td>
+                        <td
+                          width="31%"
+                          valign="top">
+                          <a
+                            href="AAFB21A6.HTM">KNEE</a>
+                        </td>
+                        <td
+                          width="54%"
+                          valign="top">
+                          <a
+                            href="AAFB21A6.HTM">30/04/2018 19:30</a>
+                        </td>
+                      </tr>
+                      <tr
+                        style="background:#c5d3ed;">
+                        <td
+                          width="15%"
+                          valign="top"
+                          style="padding-left:15px;">
+                          <a
+                            href="AAAA964B.HTM">MR</a>
+                        </td>
+                        <td
+                          width="31%"
+                          valign="top">
+                          <a
+                            href="AAAA964B.HTM">KNEE</a>
+                        </td>
+                        <td
+                          width="54%"
+                          valign="top">
+                          <a
+                            href="AAAA964B.HTM">30/04/2018 19:44</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+                <td
+                  width="59%"
+                  align="left"
+                  valign="top">
+                  <div
+                    id="imageDetails">
+                    <iframe
+                      src="EE1BEA1A.HTM"
+                      name="imageDetails"
+                      frameborder="0"
+                      scrolling="no"
+                      style="width:100%; height:482px;">#</iframe>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  colspan="2">
+                  <div
+                    id="thumbImagesContainer">
+                    <ul>
+                      <li>
+                        <a
+                          href="EE1BEA1A.HTM"
+                          target="imageDetails">
+                          <img
+                            src="../../IHE_PDI/000038F3/AA1B7E93/AAAA964B/00009656/THUMNAIL.JPG"
+                            alt="Thumb Image"
+                            width="96"
+                            border="0" />
+                        </a>
+                        <p>68 Images
+                                      </p>
+                        <p
+                          class="DescriptionOverflow"
+                          style="width:96px;">DP-T2w</p>
+                      </li>
+                      <li>
+                        <a
+                          href="EEEC343C.HTM"
+                          target="imageDetails">
+                          <img
+                            src="../../IHE_PDI/000038F3/AA1B7E93/AAAA964B/0000035B/THUMNAIL.JPG"
+                            alt="Thumb Image"
+                            width="96"
+                            border="0" />
+                        </a>
+                        <p>68 Images
+                                      </p>
+                        <p
+                          class="DescriptionOverflow"
+                          style="width:96px;">DP-T2w</p>
+                      </li>
+                      <li>
+                        <a
+                          href="EEA3C65A.HTM"
+                          target="imageDetails">
+                          <img
+                            src="../../IHE_PDI/000038F3/AA1B7E93/AAAA964B/00009D70/THUMNAIL.JPG"
+                            alt="Thumb Image"
+                            width="96"
+                            border="0" />
+                        </a>
+                        <p>29 Images
+                                      </p>
+                        <p
+                          class="DescriptionOverflow"
+                          style="width:96px;">DPw SPAIR</p>
+                      </li>
+                      <li>
+                        <a
+                          href="EE25E9B7.HTM"
+                          target="imageDetails">
+                          <img
+                            src="../../IHE_PDI/000038F3/AA1B7E93/AAAA964B/00007DC8/THUMNAIL.JPG"
+                            alt="Thumb Image"
+                            width="96"
+                            border="0" />
+                        </a>
+                        <p>29 Images
+                                      </p>
+                        <p
+                          class="DescriptionOverflow"
+                          style="width:96px;">T1w TSE</p>
+                      </li>
+                      <li>
+                        <a
+                          href="EE8DB011.HTM"
+                          target="imageDetails">
+                          <img
+                            src="../../IHE_PDI/000038F3/AA1B7E93/AAAA964B/0000A89F/THUMNAIL.JPG"
+                            alt="Thumb Image"
+                            width="96"
+                            border="0" />
+                        </a>
+                        <p>24 Images
+                                      </p>
+                        <p
+                          class="DescriptionOverflow"
+                          style="width:96px;">T2w FFE</p>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td
+            width="30%"
+            align="left"
+            valign="top">
+            <div
+              id="rightContainer">
+              <div
+                id="requestContainer">
+                <h3>
+                            Request
+                            1621713/1.2.840.2.162...</h3>
+                <table
+                  width="100%"
+                  border="0"
+                  cellspacing="0"
+                  cellpadding="0">
+                  <tr>
+                    <td
+                      width="50%">
+                      <h4>Referring Unit</h4>
+                      <p>1 - Interni</p>
+                    </td>
+                    <td
+                      width="50%">
+                      <h4>Referring Physician</h4>
+                      <p>Segato, Lorenzo</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      colspan="2">
+                      <h4>Question</h4>
+                      <p>GONALGIA BILATERALE</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      colspan="2">
+                      <h4>Case history</h4>
+                      <p></p>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div
+                id="reportContainer">
+                <div
+                  class="report">
+                  <h3>
+                                Report created 02/05/2018 16:08</h3>
+                  <table
+                    width="100%"
+                    border="0"
+                    cellspacing="0"
+                    cellpadding="0">
+                    <tr>
+                      <td
+                        colSpan="2">
+                        <h4>Doctor</h4>
+                        <p>Dott. Del Borrello  Mario</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        colspan="2">
+                        <p>
+                          <a
+                            href="../../REPORTS/000038F3/AA1B7E93/AA076C00.HTM"
+                            class="blueTextLink"
+                            target="_blank">Link to original file</a>
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        colspan="2">
+                        <p></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        width="50%"
+                        valign="top">
+                        <h4>Preliminary signature</h4>
+                        <p></p>
+                      </td>
+                      <td
+                        width="50%"
+                        valign="top">
+                        <h4>Final signature</h4>
+                        <p>Dott. Del Borrello  Mario</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        colSpan="2">
+                        <h4>Signature</h4>
+                        <p>Dott. DEL BORRELLO  MARIO</p>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
