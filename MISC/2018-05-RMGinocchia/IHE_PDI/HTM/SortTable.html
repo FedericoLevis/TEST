@@ -1,0 +1,365 @@
+<html>
+<head>
+
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" >
+  <!-- DOC like sample-->
+  <title>JS Utility | JSU Sort Table Documentation | Federico Levis</title>
+  <meta charset="utf-8"/>
+  <meta name="description" content="JSU utility (JSU) - Sort HTML Table by clicking column header" />
+  <meta name="keywords" content="js, utility, JSU, sort, table, header, click, html, documentation, doc, federico, levis" />
+
+    <!--  sample -->
+	<script type="text/javascript" src="https://rawgit.com/FedericoLevis/JSU/master/samples/Sort/SortSample.js" ></script>
+
+  <!--  JSU   -->
+	<link rel="stylesheet" href="https://rawgit.com/FedericoLevis/JSU/master/core/jsu.css" type="text/css">
+	<script data-main="https://rawgit.com/FedericoLevis/JSU/master/plugin/jsu.js" src="https://rawgit.com/FedericoLevis/JSU/master/core/require.js"></script>
+    <!-- About -->
+    <link rel="stylesheet" href="https://rawgit.com/FedericoLevis/JSU/master/samples/about/about.css" type="text/css">
+    
+    <script type="text/javascript" src="https://rawgit.com/FedericoLevis/JSU/master/samples/about/about.js" ></script>
+   
+ </head>
+<body>
+<!-- JSU HEADER COMMON FOR ALL DOC  -->
+<table class="jsuHeader" BORDER="1" cellspacing="0" cellpadding="0" width="100%">
+    <tr>
+      <td width="250px" align="center"> <img width="290px" src="https://rawgit.com/FedericoLevis/images/master/jsuAbout/jsuAboutTitle.png"/></td> 
+      <td ><table class="jsuHeaderNoBorder" width="100%">
+        <tr><td ><table class="jsuHeaderNoBorder" width="100%">
+          <tr>
+            <td class="tipl" width="150px"><label class="tiptitle">JSU Help: </label></td>
+            <td class="tiplBold">Features<input type="button" class="tipFix" id="tipJSUTitle" onclick="aboutTipFixJSU(event);" /></td>
+          <tr/>
+          <tr>
+            <td  class="tipl"><label class="tiptitle">Author:</label></td>
+            <td class="tiplBold">Federico Levis <input type="button" class="tipFix" id="tipJSUAuthor" onclick="aboutTipAuthor(event);" /></td>
+          <tr/>
+          <tr>
+            <td class="tipl"><label class="tiptitle">JSU Samples: </label></td>
+            <td class="tipl"><a class="tipLink" href="https://goo.gl/MoY5nK" target="_blank">Try JSU Samples</a> </td>
+          <tr/>
+          
+        </table></td></tr>
+      </table></td> 
+    </tr>
+</table> 
+
+
+<!--  TOOLBAR Table: GoogleAnalytics and download -  common for all the JSU HTML -->
+<table class="sampleToolbar" valign="top" width="100%" >
+  <tr >
+    <td class="tipl" valign="middle" width="50%">
+        <input type="button"  class="googleAnalList" id="googleAnalList"  onclick="jsuGoogleAnalList(event)"  onmouseover="jsuGoogleAnalListTip(event);" onmouseout="UnTip(event)"/> 
+    </td>
+    <td class="tipr" width="50%">
+     <table valign="middle" align="right">
+        <tr>
+            <td valign="middle"> <input type="button" class="downloadJsu" id="downloadJsu" onclick="downloadJsu(event);" onmouseover="downloadJsuTip(event);" onmouseout="UnTip(event)"  /> </td>
+            <td valign="middle"> <input type="button"  class="googleAnal jsuDownloadGA" id="googleAnalFree"  onclick="jsuGoogleAnalFree();"  onmouseover="jsuGoogleAnalFreeTip(event);" onmouseout="UnTip(event)"/> </td>
+            <td class="donate" valign="top">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="2HF4Z8X989Q4Y">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"
+                    onmouseover="donateTip(event);" onmouseout="UnTip(event)">
+                <img alt="" border="0" src="https://www.paypalobjects.com/it_IT/i/scr/pixel.gif" width="1" height="1">
+                </form>
+           </td>
+        </tr>
+     </table>   
+    </td> 
+  </tr>
+</table>   
+
+<hr class="jsuDoc">
+<h1 class="jsuDoc">JSU - JS Utility Plugin - SortTable Documentation</h1>
+
+
+<!-- -------------  END COMMON PART ------------------------------------------>
+
+<!--  ========================================   INDEX  -->
+
+<hr class="h2Sep"><h2 class="jsuDoc">
+<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of Contents</h2>
+
+<ul>
+<li> <a href="#par1">1) JSU SortTable API</a> 
+    <ul>
+    <li> <a href="#par1.1">1.1) Standard SortTable Options</a> </li>
+    <li> <a href="#par1.2">1.2) Particular SortTable Options</a> </li>
+    </ul>
+</li>
+<li> <a href="#par3">2) Samples</a> </li>
+<li> <a href="#par4">3) Required</a> </li>
+<li> <a href="#par5">4) Installation, Configuration, Version, Licence</a> </li>
+</ul>
+
+<BR/> 
+
+<!-- ----------------------------------------------------- par1 ---------------------------------------------------------------------------------- -->
+<hr class="h2Sep"><h2 class="jsuDoc">
+<a id="par1" class="anchor" href="#par1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1) JSU SortTable API</h2>
+This JSU API is used to Sort an HTML table by clicking Column Header; you can add this feature to your existing Table without modifying the existing HTML, but simply adding one JSU API: 
+
+<table style="margin-top:10px;margin-bottom:10px;" class="det jsuDocLink" BORDER="1" cellspacing="5" cellpadding="10" >
+  <tr class="detTitle">
+    <td colspan="3">SortTable APIs</td>
+  </tr> 
+  <tr class="detTitle2">
+    <td >JSU File</td>
+    <td>JSU API Item</td>
+    <td>Description</td>
+  </tr> 
+  <tr>
+    <td rowspan="4"><a class="tipLink" href="https://rawgit.com/FedericoLevis/JSUDoc/master/cSortTable.js/index.html" target="_self">jsu/core/cSortTable.js</a></td>
+    <td><a class="tipLink" href="https://rawgit.com/FedericoLevis/JSUDoc/master/cSortTable.js/cSortTable.html" target="_self">cSortTable()</a></td>
+    <td class="tipl">cSortTable class to Add Sort Features to an existing HTML Table</td>
+  </tr>
+  <tr>
+    <td><a class="tipLink" href="https://rawgit.com/FedericoLevis/JSUDoc/master/cSortTable.js/cSortTable.html" target="_self">cSortTable.getSortCol()</a></td>
+    <td class="tipl"><b>Method</b> to Get Current Sort Column</td>
+  </tr>
+  <tr>
+    <td><a class="tipLink" href="https://rawgit.com/FedericoLevis/JSUDoc/master/cSortTable.js/cSortTable.html" target="_self">cSortTable.getSortDir()</a></td>
+    <td class="tipl"><b>Method</b> to Get Current Sort Direction</td>
+  </tr>
+  <tr>
+    <td><a class="tipLink" href="https://rawgit.com/FedericoLevis/JSUDoc/master/cSortTable.js/cSortTable.html" target="_self">cSortTable.getSortDirLabel()</a></td>
+    <td class="tipl"><b>Method</b> to Get Current Sort Direction as Label ('Ascending', 'Descending')</td>
+  </tr>
+</table>
+
+
+We will describe following cases:
+<ul>
+  <li> <a href="#par1.1">Standard SortTable Options</a>: an example with an HTML Table having a common Layout (e.g. 1 Row for Header,..)</li>
+  <li> <a href="#par1.2">Particular SortTable Options</a> for particular Table Layout see SAMPLE_2 in  
+  <a class="tipLink" href="https://rawgit.com/FedericoLevis/JSU/master/samples/Tip/TipSample.html" target="_blank">SortTable Sample</a>
+  </li>
+</ul>
+
+<hr class="h2Sep"><h2 class="jsuDoc">
+<a id="par1.1" class="anchor" href="#par1.1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.1) Standard SortTable Options</h2>
+Follow example show how to add JSU Sort Feature to an HTML Table having a standard Layout (e.g. 1 Row for Header,..):
+<BR/><BR/>
+
+    <!--   SAMPLE and DESC HEADER-->
+   <table class="tip" BORDER="2" cellspacing="0" cellpadding="2" width="100%">
+    <tr class="tiptitleBig">
+      <th class="tiptitleBig" colspan="2">SortTable SAMPLE - Standard Table Layout</th>
+    </tr>
+    <tr class="tiptitleBig2">
+      <td width="50%" class="tipc" >SAMPLE</td>
+      <td width="50%" class="tipc" >DESCRIPTION</td>
+    </tr>
+
+    <!--   ===================================== SAMPLE_1 ==============================================  -->
+    <tr  id="tr_sample_1">
+      <td class="sample"  id="col_1_1"  valign="top">
+        <label class="sampleTitle">SAMPLE_1 - Sort a Table with a Standard Format </label>
+ 	     	<table style="margin-left:10px;margin-top:5px">
+			          <tr>
+			            <td align="left">
+						          <b>SET Table Rows</b>: 
+						          <select id="selectTbl1NumRow" onchange="sortTbl1();">   
+							          <option value="10">10</option>  
+							          <option value="50">50</option>  
+							          <option value="100" selected>100</option>  
+							          <option value="500">500</option>  
+							          <option value="1000">1000</option> 
+				            	 </select>
+			           	</td>
+			        </tr>
+			        <tr>
+			          <td>
+			            <!--  div containing the table to sort  -->
+							    <div id="divTbl1" class="sampleSort det" style="width:500px;max-height:180px" >
+							       <div class="jsuLoading" style="height:180px"></div>
+							    </div>
+			          </td>
+			        </tr>
+		     </table>
+			 </td>    
+      <!--   tbl1 SAMPLE DESCRIPTION -->
+      <td class="sampleDesc"  id="col_1_2"  valign="top">
+         <table >
+           <tr valign="top"><td>
+               <label class="aboutSource">JS Souce Code</label> of Sample_1: <input type="button" class="tipFixJS" id="tipJSTbl1" onclick="TipFixCode( JS_CODE_SORT_TBL1,event);" /><BR/>
+               Table of this sample has <label class="sampleBrown">FEW PROPERTIES (in Brown below) different from <label class="jsuAPI">cSortTable</label> JSU default.</label><BR/>
+               Table Columns:
+               <ul type="square">
+               <li>Country: <b>STRING</b></li>
+               <li>Name: <b>STRING</b></li>
+               <li>Date: <b>DATETIME</b> with <label class="sampleBrown">Format=NNN dd, yyyy HH:mm:ss</label></li>
+               <li>Amount: <b>NUMBER</b> with Default Locale GroupSeparator and DecimalSeparator</li>
+               </ul>
+               Header and Footer:
+               <ul type="square">
+               <li>Table <b>Header has 1 rows</b> (That is JSU cSortTable default)</li> 
+               <li>Table <b>Footer has class=footer</b> (That is JSU cSortTable default)</li> 
+               </ul>
+           </td></tr>
+         </table>
+      </td>
+			          
+    </tr>
+   
+  </table>    
+
+
+  
+
+<hr class="h2Sep"><h2 class="jsuDoc">
+<a id="par1.2" class="anchor" href="#par1.2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.2) Particular SortTable Options</h2>
+Follow an example with particular Table Layout:
+<BR/><BR/>
+
+    <!--   SAMPLE and DESC HEADER-->
+   <table class="tip" BORDER="2" cellspacing="0" cellpadding="2" width="100%">
+    <tr class="tiptitleBig">
+      <th class="tiptitleBig" colspan="2">SortTable SAMPLE - Particular Table Layout</th>
+    </tr>
+    <tr class="tiptitleBig2">
+      <td width="50%" class="tipc" >SAMPLE</td>
+      <td width="50%" class="tipc" >DESCRIPTION</td>
+    </tr>
+
+
+   <!--   ===================================== TBL2 ==============================================  -->
+    <tr id="tr_sample_2">
+      <td class="sample"  id="col_2_1" valign="top">
+        <label class="sampleTitle">SAMPLE_2 - Sort a Table with a CUSTOM FORMAT </label>
+        <!--     TABLE tbl2 to SORT -->
+				<table class="sampleSort" style="margin-top:5px;margin-left:10px"  id="tbl2" border="1" width="500px">  
+				   <thead>    
+				    <tr class="header" style="background-color: #99CCFF; color:black;" >  
+				      <td style="text-align:center" colspan="5">Request List</td>  
+				    </tr>
+				    <tr class="header" style="background-color: #99FFFF; color:black;">      
+				        <th width="20px" class="header"></th>      
+				        <th width="80px" class="header">Request Number</th>      
+				        <th width="90px" class="header">Insert Date</th>      
+				        <th width="100px" class="header">State</th>      
+				        <th width="100px" class="header">Amount</th>      
+				  </thead>  
+				  <tbody>   
+				    <tr>       
+				      <td class="sampleSort" align="center" ></td>
+				      <td class="sampleSort" align="right">11</td>
+				      <td class="sampleSort" align="right">21/04/2016</td>
+				      <td class="sampleSort" align="right">INSERTED</td>
+				      <td class="sampleSort" align="right">1,000,200.00</td>
+				    </tr>
+				    <tr>       
+				      <td class="sampleSort" align="center"><img class="sampleSort" src="https://raw.githubusercontent.com/FedericoLevis/images/master/samples/delete.png"/></td>
+				      <td class="sampleSort" align="right">5</td>
+				      <td class="sampleSort" align="right">19/04/2016</td>
+				      <td class="sampleSort" align="right">DONE</td>
+				      <td class="sampleSort" align="right">1,725.50</td>
+				    </tr>
+				    <tr>       
+				      <td class="sampleSort" align="center"><img class="sampleSort" src="https://raw.githubusercontent.com/FedericoLevis/images/master/samples/delete.png"/></td>
+				      <td class="sampleSort" align="right">5</td>
+				      <td class="sampleSort" align="right">12/04/2016</td>
+				      <td class="sampleSort" align="right">DONE</td>
+				      <td class="sampleSort" align="right">5,728.23</td>
+				    </tr>
+				    <tr>       
+				       <td class="sampleSort" align="center"></td>
+				       <td class="sampleSort" align="right">4</td>
+				       <td class="sampleSort" align="right">19/04/2016</td>
+				      <td class="sampleSort" align="right">WORKING</td>
+				      <td class="sampleSort" align="right">1,725</td>
+				    </tr>
+				    <tr class="myFooter" >
+				      <td class="myFooter" align="right" colspan="4">Total</td>
+				      <td class="myFooter" align="right">1,009,378.73</td>
+				    </tr>
+				   </tbody> 
+				</table>
+      </td>
+    
+      <!--   tbl2 SAMPLE DESCRIPTION -->
+      <td class="sampleDesc" id="col_2_2"  valign="top">
+         <table >
+           <tr valign="top"><td>
+               <label class="aboutSource">JS Source Code</label> of SAMPLE_2: <input type="button" class="tipFixJS" id="tipJSTbl2" onclick="TipFixCode( JS_CODE_SORT_TBL2,event);" /><BR/>
+               Table has <label class="sampleBrown">MANY PROPERTIES (in Brown below) different from <label class="jsuAPI">cSortTable</label> JSU default.</label><BR/>
+               Table Columns:
+               <ul type="square">
+               <li>First Column: <label class="sampleBrown">NOT TO SORT</label></li>
+               <li>Request Number: <b>NUMBER</b></li>
+               <li>Insert Date: <b>DATETIME</b> with <label class="sampleBrown">Format=dd/MM/yyyy</label></li>
+               <li>State: <b>STRING</b></li>
+               <li>Amount: <b>NUMBER</b> with <label class="sampleBrown">GroupSeparator=,</label> and <label class="sampleBrown">DecimalSeparator=.</label></li>
+               </ul>
+               Header and Footer:
+               <ul type="square">
+               <li>Table <label class="sampleBrown">Header has 2 rows</label> (JSU default is <b>Header with 1 row</b>)</li> 
+               <li>Table <label class="sampleBrown">Footer has class=myFooter</label> (JSU default is <b>footer</b>)</li> 
+               </ul>
+           </td></tr>
+         </table>
+      </td>
+    </tr>
+
+
+ </table>  
+    
+  
+
+<!-- ======================================================================================================================================== END SPECIFIC API-->
+
+<hr class="h2Sep"><h2 class="jsuDoc">
+<a id="par2" class="anchor" href="#par1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2) Samples</h2>
+  <a class="tipLink" href="https://rawgit.com/FedericoLevis/JSU/master/samples/Sort/SortSample.html" target="_blank">Try SortTable Sample</a>
+  <BR/><BR/>
+  <!--     VIDEO -->
+  <a href="https://youtu.be/wpo2oM_L3ds" target="_blank"> <img src="https://rawgit.com/FedericoLevis/images/master/jsuAbout/PlayVideo.png" alt="Click to See the Video" width="100" height="20" border="2" /></a>
+
+
+<hr class="h2Sep"><h2 class="jsuDoc">
+<a id="par3" class="anchor" href="#par1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3) Required</h2>
+<hr>
+NO External Plugin is required: <b><i>Pure JS Code</i></b>
+
+<hr class="h2Sep"><h2 class="jsuDoc">
+<a id="par4" class="anchor" href="#par1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4) Installation, Configuration, Version, Licence</h2>
+See <a class="tipLink" href="https://rawgit.com/FedericoLevis/JSU/master/README.html" target="_blank">JSU Documentation</a>
+
+<hr class="footerSep">
+<!-- JSU FOOTER  COMMON-->
+<table class="jsuFooter" BORDER="1" cellspacing="0" cellpadding="0" width="100%">
+    <tr>
+      <td width="180px" align="center"> <img width="180px" src="https://rawgit.com/FedericoLevis/images/master/jsuAbout/JSUDancing.gif"/></td> 
+      <td ><table class="jsuFooterNoBorder" width="100%">
+        <tr><td ><table class="jsuFooterNoBorder" width="100%">
+          <tr>
+            <td class="tipl"><label class="tiptitle">JSU Samples: </label></td>
+            <td class="tipl"><a class="tipLink" href="https://goo.gl/MoY5nK" target="_blank">Try JSU Samples</a> </td>
+          <tr/>
+          <tr>
+            <td class="tipl"><label class="tiptitle">JSU Doc: </label></td>
+            <td class="tipl"><a class="tipLink" href="https://goo.gl/JzIXW0" target="_blank">https://rawgit.com/FedericoLevis/JSU/master/README.html</a> </td>
+          <tr/>
+          <tr>
+            <td class="tipl" width="180px"><label class="tiptitle">JSU GitHub: </label></td>
+            <td class="tipl"><a class="tipLink" href="https://goo.gl/LYDepH" target="_blank">https://github.com/FedericoLevis/JSU</a> </td>
+          <tr/>
+          <tr>
+            <td  class="tipl"><label class="tiptitle">Author: </label></td>
+            <td class="tipl"><a class="tipLink" href="https://goo.gl/J9mJfh" target="_blank">Federico Levis</a> </td>
+          <tr/>
+          <tr>
+            <td class="tipl"><label class="tiptitle">Email:</label></td>
+            <td class="tipl"><a class="tipLink" href="mailto:federico.levis@virgilio.it" target="_blank">federico.levis@virgilio.it</a> </td>
+          <tr/>
+        </table></td></tr>
+      </table></td> 
+    </tr>
+</table> 
+
+
+</body>
+</html>
