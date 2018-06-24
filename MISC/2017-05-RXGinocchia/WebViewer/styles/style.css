@@ -1,0 +1,420 @@
+html,body
+{
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color:#F2F1EE;;
+  font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+  font-size:11px;
+  min-width:1000px;
+  background-position:top right;
+  background-repeat:no-repeat;
+}
+
+ol
+{
+  color:black;
+  list-style-type: decimal;
+}
+
+
+.Bordered
+{
+    margin:auto;
+    padding:0;
+    border:0;
+    border-left:1px solid #A5A5A5 ;
+    border-right:1px solid #A5A5A5;
+    background-color:white;
+}
+
+.LeftBorder
+{
+	background-image:url('../res/headerBorder.png'); background-repeat:no-repeat; background-position:top left;
+}
+
+.RightBorder
+{
+	background-image:url('../res/headerBorder.png'); background-repeat:no-repeat; background-position:top right;
+}
+
+.LELauncherContainer
+{
+	width:100%;
+	text-align:center;
+	font-size:14px;
+	padding-bottom:10px;
+	cursor:pointer;
+}
+
+.LELauncher
+{
+	vertical-align:bottom;
+}
+
+.StudyTableInfoRow
+{
+	cursor:pointer;
+}
+
+.Footer
+{
+	width:100%;
+	height:100%;
+	background-color:#F2F1EE;
+	background-image:url('../res/pattern-s.png');
+}
+
+.CenterLeft
+{
+  background-image:url('../res/left.png');
+  background-repeat:repeat-y;
+  background-position:left;
+  width:19px;
+}
+
+.CenterRight
+{
+  background-image:url('../res/right.png');
+  background-repeat:repeat-y;
+  background-position:right;
+  width:19px;
+}
+
+.Min-Width
+{
+	width:1000px;
+	height:1px;
+	
+}
+
+.BottomLeft
+{
+  background-image:url('../res/bottomleft.png');
+  background-repeat:no-repeat;
+  width:49px;
+  height:47px;
+}
+
+.BottomRight
+{
+  background-image:url('../res/bottomright.png');
+  background-repeat:no-repeat;
+  width:49px;
+  height:47px;
+}
+
+.Bottom
+{
+  background-image:url('../res/bottom.png');
+  background-repeat:repeat-x;
+  height:47px;
+}
+
+.TopLeft
+{
+  background-image:url('../res/topleft.png');
+  background-repeat:no-repeat;
+  width:441px;
+  height:152px;
+}
+
+.TopRight
+{
+  background-image:url('../res/topright.png');
+  background-repeat:no-repeat;
+  width:150px;
+  height:152px;
+}
+
+.TopCenter
+{
+  background-image:url('../res/topcenter.png');
+  background-repeat:repeat-x;
+  background-position:top;
+  height:152px;
+}
+
+.Content
+{
+  background-color:white;
+}
+
+
+.MainContainer
+{
+  width:100%;
+  margin:auto;
+  
+}
+
+.MainTable
+{
+  margin:auto;
+  margin-top:30px;
+  width:100%;
+  background-image:url('../res/folder.png');
+  background-repeat:no-repeat;
+  background-position:bottom left;
+}
+
+.MainTable td
+{
+  vertical-align:top;
+}
+
+.ImageTd
+{
+  width:512px;
+  height:512px;
+  vertical-align:top;
+  background-color:#F2F1EE;
+  border:1px solid silver;
+}
+
+.ImagePanel
+{
+	width:100%;
+	background-color:black;
+	cursor: pointer;
+}
+
+.ImageContainer
+{
+	width:512px;
+	max-height:512px;
+	min-height:512px;
+	height:512px;
+	vertical-align:middle;
+	background-color:black;
+	text-align:center;
+}
+.ButtonPanel
+{
+  text-align:center;	
+}
+
+.ViewerContainer
+{
+	position:relative;
+	top:0px;
+	left:0px;
+}
+
+.InfoLabel
+{
+  color:lime;
+}
+
+.ui-widget-overlay
+{
+    background-color : #ffffff;
+    opacity : 0.5;
+    filter: alpha(opacity = 50);
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+}
+
+.selected
+{
+	border: 2px dashed #1e70ff;
+}
+
+.frame
+{
+  border:double silver;
+  background-color:white;
+  position:absolute;
+  top:0px;
+  left:auto;
+  margin:auto;
+  width:1000px;
+}
+
+.frameTitle
+{
+  position:relative;
+  text-align:left;
+  top: -32px;
+  margin-right:10%;
+  font-size:1.5em;
+  padding:5px;
+}
+
+.frameHeader
+{
+  text-align:right;
+  height:30px;
+}
+
+.frameExitButton
+{
+  background-image: url('../res/close.png');
+  width:32px;
+  height:32px;
+  display:inline-block;
+  position:relative;
+  top:-16px;
+  left:16px;
+  cursor:pointer;
+}
+
+.frameButtonPanel
+{
+  width:100%;
+  height:48px;
+}
+
+.frameNextButton
+{
+  float:right;
+  background-image:url('../res/reportNext.png');
+  background-position:center right;
+  height:48px;
+  width:48px;
+  cursor:pointer;
+}
+
+.framePrevButton
+{
+  float:left;
+  background-image:url('../res/reportPrev.png');
+  background-position:center left;
+  height:48px;
+  width:48px;
+  cursor:pointer;
+}
+
+.framePrevButtonDisabled
+{
+  background-image:url('../res/reportPrevDisabled.png');
+}
+
+.frameNextButtonDisabled
+{
+  background-image:url('../res/reportNextDisabled.png');
+}
+
+
+.frameContent
+{
+  padding: 5px;
+}
+
+#prevButton
+{
+  border:0;
+  background-image:url('../res/prev.png');
+  text-align:center;
+  vertical-align:bottom;
+  height:80px;
+  background-position:top center;
+  background-repeat:no-repeat;
+  background-color:#F2F1EE;
+  cursor:pointer;
+}
+
+#otherFilesButton
+{
+  border:0;
+  background-image:url('../res/ot.png');
+  text-align:center;
+  vertical-align:bottom;
+  height:80px;
+  background-position:top center;
+  background-repeat:no-repeat;
+  background-color:#F2F1EE;
+  cursor:pointer;
+}
+
+#nextButton
+{
+  border:0;
+  background-image:url('../res/next.png');
+  text-align:center;
+  vertical-align:bottom;
+  background-position:top center;
+  background-repeat:no-repeat;
+  background-color:#F2F1EE;
+  cursor:pointer;
+  height:80px;
+}
+
+#prevButton[disabled]
+{
+  background-image:url('../res/prevDisabled.png');
+  cursor:pointer;
+}
+
+#nextButton[disabled]
+{
+  background-image:url('../res/nextDisabled.png');
+  cursor:pointer;
+}
+
+/*Study Table*/
+table.StudyTable {
+	background-color: transparent;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
+	
+}
+table.StudyTable thead tr th, table.StudyTable tfoot tr th {
+	background-color: #668ECA;
+	border: 1px solid blue;
+	font-size: 8pt;
+	padding: 4px;
+}
+table.StudyTable thead tr {
+	background-image: url(bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+}
+table.StudyTable tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: white;
+	vertical-align:middle;
+}
+table.StudyTable tbody tr.odd td {
+	background-color:#E3EAF5;
+}
+table.StudyTable thead tr .ASC,table.StudyTable thead tr .headerSortUp {
+	background-image: url(../../res/desc.gif);
+	background-position: center right;
+	background-repeat:no-repeat;
+}
+table.StudyTable thead tr .DESC,table.StudyTable thead tr .headerSortDown {
+	background-image: url(../../res/asc.gif);
+	background-position: center right;
+	background-repeat:no-repeat;
+}
+
+table.SeriesTable {
+
+	background-color: transparent;
+	/*margin:10px 0pt 15px;*/
+	font-size: 8pt;
+	width: 98%;
+	text-align: left;
+}
+table.SeriesTable thead tr th, table.SeriesTable tfoot tr th {
+	background-color: #9D5501;
+	border: 1px solid orange;
+	font-size: 8pt;
+	color:black;
+	padding: 4px;
+}
+table.SeriesTable tbody tr {
+	cursor:pointer;
+}
+table.SeriesTable tbody td  {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFE7CB;
+}
+

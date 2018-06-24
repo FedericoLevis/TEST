@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>
+			NeoLogica WebViewer
+		</title>
+		<script src="./WebViewer/scripts/jquery.js" type="text/javascript"></script>
+		<script src="./WebViewer/scripts/Instance.js" type="text/javascript"></script>
+		<script src="./WebViewer/scripts/Series.js" type="text/javascript"></script>
+		<script src="./WebViewer/scripts/Viewer.js" type="text/javascript"></script>
+		<link href="./WebViewer/styles/style.css" rel="stylesheet" />
+	</head>
+	<body>
+	<div class="Min-Width">&nbsp;</div>
+<!-- Header Table -->
+									<table width="98%" cellpadding="0" cellspacing="0" style="margin:auto" border="0">
+									  <tr>
+										  <!-- Toolbar -->
+										  <td style="height:89px">
+											  <table border="0" bgcolor="transparent" cellpadding="0" cellspacing="0" style="width:100%;padding:0px; margin:0px;background-color:transparent; " >
+												  <tr style="background-color:transparent">
+													  <td  height="89px" width="1px" class="LeftBorder" ></td>
+													  <td  height="89px" id="leftTon" align="left" style="width:215px;background-image:url('WebViewer/res/left.png');background-repeat:no-repeat;background-position:bottom left;background-color:transparent"></td>
+													  <td  id="centralPattern" style="background-image:url('WebViewer/res/pattern.png');background-repeat:repeat-x;background-position:bottom left; text-align:center; background-color:transparent">&nbsp;</td>
+													  <td  height="89px" id="rightTon" align="right" style="width:215px;background-image:url('WebViewer/res/right.png');background-repeat:no-repeat;background-position:bottom left;background-color:transparent"></td>
+													  <td  height="89px" width="1px" class="RightBorder"></td>
+												  </tr>
+												  <tr>
+													  <td class="Bordered" colspan="5" height="45px" style="background-image:url('WebViewer/res/mesh_gradient_grey1.gif'); background-repeat:repeat-x">
+                                      					<div class="LELauncherContainer" onclick="Viewer.launchLocalEye()">
+															<img class="LELauncher" src="./WebViewer/res/LE.png" />Premi qui per lanciare il visualizzatore DICOM LocalEye
+														</div>
+													  </td>
+												  </tr>
+											  </table>
+										  </td>
+										  <!-- EO Tollbar -->
+									  </tr>
+									</table>
+									<table width="98%" cellpadding="0" cellspacing="0" style="margin:auto" border="0">
+										<tbody>
+											<tr>
+												<td class="Bordered" colspan="3">					<div class="MainContainer">
+						<div class="LELauncherContainer" onclick="Viewer.launchLocalEye()"></div>						<table class="MainTable">
+						<tr>
+							<td>
+								<table class="StudyTable" cellspacing="1">
+									<thead>
+										<tr>
+											<th>Patient Name</th><th>Birth Date</th><th>Sex</th><th>Study Description</th><th>Study Date</th><th>Study Time</th>
+										</tr>
+									</thead>
+									<tbody>
+									<tr class="StudyTableInfoRow odd">
+										<td>LEVIS FEDERICO</td><td>1966.07.27</td><td>M</td><td>RX GINOCCHIO SINISTRO</td><td>2017.05.29</td><td>14:49:54.000</td>
+									</tr>
+									<tr>
+										<td colspan="6">
+											<table class="SeriesTable" cellspacing="1">
+												<thead>													<tr>
+														<th>Series Number</th><th>Modality</th><th>Series Description</th>
+													</tr>
+												</thead>												<tbody>													<tr id="1Series0" class="image">
+														<td>54177856</td><td>CR</td>
+<td></td>
+														<td style="display:none">
+															<span class="single" rel="1.2.392.200036.9125.9.0.253285859.3338993689.2571243592" title="1001">./IHE/JPEG/00000000.jpg</span>
+													<tr id="1Series1" class="image">
+														<td>72977792</td><td>CR</td>
+<td></td>
+														<td style="display:none">
+															<span class="single" rel="1.2.392.200036.9125.9.0.253285860.319160345.2571243592" title="1002">./IHE/JPEG/00000001.jpg</span>
+													<tr id="1Series2" class="image">
+														<td>54359472</td><td>CR</td>
+<td></td>
+														<td style="display:none">
+															<span class="single" rel="1.2.392.200036.9125.9.0.253285860.1443299353.2571243592" title="1003">./IHE/JPEG/00000002.jpg</span>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<br />
+							<br />
+						</td>
+						<td class="ImageTd">
+							<div class="ViewerContainer" >
+								<div style="width:100;height:25px;background-color:black;">
+								   									<div id="instanceNumberLabel" class="InfoLabel" style="float:left">Instance Number: </div>
+								   									<div id="frameNumberLabel" class="InfoLabel" style="float:right">Frame Number: </div>
+									  								</div>
+								<div class="ImageContainer" >
+									<img id="imagePanel" class="ImagePanel" title="Premi qui per aprire l'immagine in una nuova finestra"/>
+								</div>
+								<div id="buttonPanel" class="ButtonPanel">
+									<input type="button" value="Prev" id="prevButton" onmouseup="Viewer.showPrevImage();"/>
+									<input type="button" value="Next" id="nextButton" onmouseup="Viewer.showNextImage();"/>
+									<input type="button" value="Attached Files" id="otherFilesButton" />
+								</div>
+							</div >
+						</td>
+					</tr>
+				</table>
+			</div>
+		</td>
+							</tr>
+						  </tbody>
+						</table>
+						<div style="width:100%;background-image:url('WebViewer/res/footerBorder.png');background-repeat:repeat-x;">
+						  <!-- Footer Table -->
+						  <table align="center" width="98%" border="0" cellpadding="0" cellspacing="0" >
+							<tr>
+							  <td style="width:1px;background-image:url('WebViewer/res/footerBorder.png'); background-repeat:no-repeat;"></td>
+							  <td  align="center" valign="bottom" style="margin:auto;padding:0;border:0;background-color:white;height:89px;">
+								<div class="Footer">Generato utilizzando LogiPACS. Copyright 2002-2011 (c) NeoLogica. All rights reserved. <br />
+<a href="http://www.neologica.it" >http://www.neologica.it </a></div>
+							  </td>
+							  <td style="width:1px;background-image:url('WebViewer/res/footerBorder.png'); background-repeat:no-repeat;"></td>
+							</tr>
+						  </table>
+						</div>
+					  </body>
+					</html>
